@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariage Civil — Binger & Clément</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #FAF7F4;
+      --bg-alt:   #F2EDE6;
+      --text:     #1C1714;
+      --muted:    #7A6E68;
+      --gold:     #B89870;
+      --gold-l:   #DDD0BC;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+      --cn:       'Noto Serif SC', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; font-weight: 300; }
+
+    /* ── LANG MODAL ── */
+    .lang-modal {
+      position: fixed; inset: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(20,16,12,.84); backdrop-filter: blur(10px);
+      transition: opacity .35s;
+    }
+    .lang-modal.hidden { opacity: 0; pointer-events: none; }
+    .lang-modal-box {
+      background: var(--bg); border: 1px solid var(--gold-l);
+      padding: 2.75rem 2.5rem 2.25rem; text-align: center;
+      max-width: 340px; width: 88%;
+    }
+    .lm-name { font-family: var(--serif); font-size: 1.9rem; font-style: italic; font-weight: 300; margin-bottom: .4rem; }
+    .lm-event { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; display: block; }
+    .lm-hint { font-size: .72rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .lang-choices { display: flex; border: 1px solid var(--gold-l); }
+    .lang-choice {
+      flex: 1; padding: .8rem .5rem; background: none; border: none;
+      border-right: 1px solid var(--gold-l); font-family: var(--sans);
+      font-size: .78rem; letter-spacing: .12em; cursor: pointer;
+      text-transform: uppercase; color: var(--muted); transition: all .2s;
+    }
+    .lang-choice:last-child { border-right: none; }
+    .lang-choice:hover { background: var(--gold); color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100svh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 4rem 2rem 2.5rem; position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(184,152,112,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Illustration placeholder */
+    .ill-wrap { width: min(440px, 92%); height: 38vh; max-height: 290px; margin: 0 auto 2rem; position: relative; flex-shrink: 0; }
+    .ill-ph {
+      position: absolute; inset: 0; border: 1px solid var(--gold-l);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(184,152,112,.045) 18px, rgba(184,152,112,.045) 19px);
+    }
+    .ill-ph::before { content: ''; position: absolute; inset: .5rem; border: 1px solid rgba(184,152,112,.15); }
+    .ill-label { font-family: 'Courier New', monospace; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
+    .ill-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Hero text */
+    .event-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .couple-name { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.05; margin-bottom: .75rem; }
+    .hero-meta { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+    .hero-meta p { margin-bottom: .15rem; }
+
+    /* Mini lang switcher */
+    .lang-strip {
+      margin-top: 1.25rem; display: flex; align-items: center; justify-content: center; gap: .4rem;
+    }
+    .lang-mini {
+      background: none; border: none; font-family: var(--sans); font-size: .62rem;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--muted); cursor: pointer; padding: .1rem .2rem;
+      transition: color .2s;
+    }
+    .lang-mini.active { color: var(--text); font-weight: 500; }
+    .lang-mini:hover { color: var(--text); }
+    .lang-strip-sep { color: var(--gold-l); font-size: .6rem; }
+
+    /* Scroll cue */
+    .scroll-cue { margin-top: 1.5rem; color: var(--gold); opacity: .55; animation: scrollAnim 2.5s ease-in-out infinite; }
+    @keyframes scrollAnim { 0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(5px);opacity:.7} }
+
+    /* ── ACTIONS BAR ── */
+    .actions-bar {
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+      padding: 1.75rem 2rem; flex-wrap: wrap; border-bottom: 1px solid rgba(184,152,112,.18);
+    }
+    .action-link {
+      display: flex; align-items: center; gap: .4rem; text-decoration: none;
+      color: var(--muted); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: color .2s; padding-bottom: .15rem; border-bottom: 1px solid transparent;
+    }
+    .action-link:hover { color: var(--gold); border-bottom-color: var(--gold-l); }
+    .action-ico { font-size: .85rem; }
+    .action-brand { font-family: var(--serif); font-style: italic; font-size: .78rem; text-transform: none; letter-spacing: 0; opacity: .5; }
+    .action-sep { color: var(--gold-l); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 2rem; }
+    .section-alt { background: var(--bg-alt); }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-hd { margin-bottom: 3rem; }
+    .section-num { display: block; font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 300; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: grid; grid-template-columns: 4.5rem 1px 1fr; gap: 0 1.75rem; padding-bottom: 2rem; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-time { font-family: var(--serif); font-size: .88rem; color: var(--gold); text-align: right; padding-top: .05rem; }
+    .tl-line { background: var(--gold-l); position: relative; }
+    .tl-line::before { content: ''; position: absolute; top: .3rem; left: -4px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .tl-body h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: .2rem; }
+    .tl-body p { font-size: .82rem; color: var(--muted); }
+
+    /* MAP */
+    .map-ph { width: 100%; height: 250px; margin-bottom: 2.5rem; border: 1px solid var(--gold-l); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; background: repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(184,152,112,.05) 28px,rgba(184,152,112,.05) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(184,152,112,.05) 28px,rgba(184,152,112,.05) 29px); font-family: 'Courier New',monospace; font-size: .65rem; color: var(--gold); letter-spacing: .1em; }
+
+    /* TRANSPORT */
+    .transport-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .t-item { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; align-items: start; }
+    .t-ico { width: 3rem; height: 3rem; border: 1px solid var(--gold-l); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .t-body h4 { font-family: var(--serif); font-weight: 400; margin-bottom: .2rem; }
+    .t-body p { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+
+    /* CARDS */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+    .card { border: 1px solid var(--gold-l); padding: 1.5rem; }
+    .card-tag { display: inline-block; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-l); padding: .2rem .55rem; margin-bottom: .75rem; }
+    .card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: .4rem; }
+    .card p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .card a { color: var(--gold); text-decoration: none; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2.5rem 2rem; border-top: 1px solid var(--gold-l); }
+    footer p { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .9rem; }
+
+    @media(max-width:600px){
+      .hero { padding: 3.5rem 1.25rem 2rem; }
+      .ill-wrap { height: 32vh; max-height: 220px; }
+      .couple-name { font-size: 2.6rem; }
+      .actions-bar { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LANGUAGE MODAL ── -->
+<div class="lang-modal" id="langModal">
+  <div class="lang-modal-box">
+    <p class="lm-name">Binger &amp; Clément</p>
+    <span class="lm-event t" data-key="event_label_short">Mariage Civil</span>
+    <p class="lm-hint">Choisissez votre langue · Choose your language · 选择语言</p>
+    <div class="lang-choices">
+      <button class="lang-choice" data-lang="fr">Français</button>
+      <button class="lang-choice" data-lang="en">English</button>
+      <button class="lang-choice" data-lang="zh">中文</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+  <!-- Illustration placeholder — remplacer par <img src="illustration-civil.png" class="ill-img"> -->
+  <div class="ill-wrap">
+    <div class="ill-ph">
+      <span class="ill-label">[ Illustration — Mariage Civil ]</span>
+    </div>
+  </div>
+
+  <p class="event-label t" data-key="event_label"></p>
+  <h1 class="couple-name">Binger &amp; Clément</h1>
+  <div class="hero-meta">
+    <p class="t" data-key="date"></p>
+    <p class="t" data-key="time_venue"></p>
+  </div>
+
+  <!-- Mini lang switcher -->
+  <div class="lang-strip">
+    <button class="lang-mini" data-lang="fr">FR</button>
+    <span class="lang-strip-sep">·</span>
+    <button class="lang-mini" data-lang="en">EN</button>
+    <span class="lang-strip-sep">·</span>
+    <button class="lang-mini" data-lang="zh">中</button>
+  </div>
+
+  <div class="scroll-cue">
+    <svg width="18" height="26" viewBox="0 0 18 26" fill="none"><path d="M9 1 L9 21" stroke="currentColor" stroke-width="1.2"/><path d="M3 16 L9 22 L15 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+  </div>
+</section>
+
+<!-- ── ACTIONS ── -->
+<div class="actions-bar reveal">
+  <a class="action-link" href="#" target="_blank" rel="noopener">
+    <span class="action-ico">✉</span>
+    <span class="t" data-key="rsvp"></span>
+    <span class="action-brand">— RSVP</span>
+  </a>
+  <span class="action-sep">·</span>
+  <a class="action-link" href="#" target="_blank" rel="noopener">
+    <span class="action-ico">♫</span>
+    <span class="t" data-key="playlist"></span>
+    <span class="action-brand">— Spotify</span>
+  </a>
+  <span class="action-sep">·</span>
+  <a class="action-link" href="#" target="_blank" rel="noopener">
+    <span class="action-ico">◇</span>
+    <span class="t" data-key="gift"></span>
+    <span class="action-brand">— Lydia</span>
+  </a>
+</div>
+
+<!-- ── PROGRAMME ── -->
+<section class="section reveal" id="programme">
+  <div class="section-inner">
+    <div class="section-hd"><span class="section-num t" data-key="n01"></span><h2 class="section-title t" data-key="prog_title"></h2></div>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-time">10h00</span><div class="tl-line"></div><div class="tl-body"><h3 class="t" data-key="p1t"></h3><p class="t" data-key="p1d"></p></div></div>
+      <div class="tl-item"><span class="tl-time">10h30</span><div class="tl-line"></div><div class="tl-body"><h3 class="t" data-key="p2t"></h3><p class="t" data-key="p2d"></p></div></div>
+      <div class="tl-item"><span class="tl-time">11h30</span><div class="tl-line"></div><div class="tl-body"><h3 class="t" data-key="p3t"></h3><p class="t" data-key="p3d"></p></div></div>
+      <div class="tl-item"><span class="tl-time">13h00</span><div class="tl-line"></div><div class="tl-body"><h3 class="t" data-key="p4t"></h3><p class="t" data-key="p4d"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRANSPORT ── -->
+<section class="section section-alt reveal" id="transport">
+  <div class="section-inner">
+    <div class="section-hd"><span class="section-num t" data-key="n02"></span><h2 class="section-title t" data-key="transport_title"></h2></div>
+    <div class="map-ph"><span>[ Google Maps ]</span><span style="font-size:.58rem;opacity:.6" class="t" data-key="map_label"></span></div>
+    <div class="transport-list">
+      <div class="t-item"><div class="t-ico">🚆</div><div class="t-body"><h4 class="t" data-key="tr_train"></h4><p class="t" data-key="tr_train_d"></p></div></div>
+      <div class="t-item"><div class="t-ico">🚗</div><div class="t-body"><h4 class="t" data-key="tr_car"></h4><p class="t" data-key="tr_car_d"></p></div></div>
+      <div class="t-item"><div class="t-ico">✈</div><div class="t-body"><h4 class="t" data-key="tr_plane"></h4><p class="t" data-key="tr_plane_d"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HÉBERGEMENTS ── -->
+<section class="section reveal" id="hotels">
+  <div class="section-inner">
+    <div class="section-hd"><span class="section-num t" data-key="n03"></span><h2 class="section-title t" data-key="hotel_title"></h2></div>
+    <div class="cards">
+      <div class="card"><span class="card-tag t" data-key="htag1"></span><h3>[Hôtel prestige]</h3><p>[Adresse] · ★★★★★<br>[Tarif / nuit]<br><a href="#">Réserver →</a></p></div>
+      <div class="card"><span class="card-tag t" data-key="htag2"></span><h3>[Hôtel confort]</h3><p>[Adresse] · ★★★<br>[Tarif / nuit]<br><a href="#">Réserver →</a></p></div>
+      <div class="card"><span class="card-tag t" data-key="htag3"></span><h3>[Option économique]</h3><p>[Adresse] · dès [XX]€/nuit<br><a href="#">Voir →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TOURISME ── -->
+<section class="section section-alt reveal" id="tourisme">
+  <div class="section-inner">
+    <div class="section-hd"><span class="section-num t" data-key="n04"></span><h2 class="section-title t" data-key="tour_title"></h2></div>
+    <div class="cards">
+      <div class="card"><span class="card-tag t" data-key="ttag1"></span><h3>[Site / activité 1]</h3><p>[Description courte.]</p></div>
+      <div class="card"><span class="card-tag t" data-key="ttag2"></span><h3>[Site / activité 2]</h3><p>[Description courte.]</p></div>
+      <div class="card"><span class="card-tag t" data-key="ttag3"></span><h3>[Site / activité 3]</h3><p>[Description courte.]</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>Binger &amp; Clément — <span class="t" data-key="footer_msg"></span></p></footer>
+
+<script>
+const T = {
+  fr: { event_label_short:"Mariage Civil", event_label:"Mariage Civil", date:"Samedi [Date]", time_venue:"[Heure] · [Mairie / Lieu] · [Ville]", rsvp:"Confirmer ma présence", playlist:"Notre playlist", gift:"Offrir un cadeau", n01:"01", prog_title:"Programme de la journée", p1t:"Accueil des invités", p1d:"[Détail optionnel]", p2t:"Cérémonie civile", p2d:"[Détail optionnel]", p3t:"Cocktail", p3d:"[Détail optionnel]", p4t:"Déjeuner", p4d:"[Détail optionnel]", n02:"02", transport_title:"Comment venir", map_label:"Intégrez votre iframe Google Maps ici", tr_train:"En train", tr_train_d:"[Gare la plus proche] — [trajet depuis ville principale]", tr_car:"En voiture", tr_car_d:"[Autoroute] · [Durée depuis Paris] · Parking sur place", tr_plane:"En avion", tr_plane_d:"[Aéroport le plus proche] · Navettes disponibles", n03:"03", hotel_title:"Hébergements recommandés", htag1:"Prestige", htag2:"Confort", htag3:"Petit budget", n04:"04", tour_title:"À découvrir", ttag1:"Patrimoine", ttag2:"Nature", ttag3:"Gastronomie", footer_msg:"Avec tout notre amour" },
+  en: { event_label_short:"Civil Wedding", event_label:"Civil Wedding", date:"Saturday [Date]", time_venue:"[Time] · [Town Hall / Venue] · [City]", rsvp:"Confirm attendance", playlist:"Our playlist", gift:"Give a gift", n01:"01", prog_title:"Day Programme", p1t:"Guest arrival", p1d:"[Optional detail]", p2t:"Civil ceremony", p2d:"[Optional detail]", p3t:"Cocktail hour", p3d:"[Optional detail]", p4t:"Lunch", p4d:"[Optional detail]", n02:"02", transport_title:"Getting there", map_label:"Embed your Google Maps iframe here", tr_train:"By train", tr_train_d:"[Nearest station] — [journey from main city]", tr_car:"By car", tr_car_d:"[Motorway] · [Time from Paris] · Parking on site", tr_plane:"By plane", tr_plane_d:"[Nearest airport] · Shuttles available", n03:"03", hotel_title:"Accommodation", htag1:"Prestige", htag2:"Comfort", htag3:"Budget", n04:"04", tour_title:"Discover the area", ttag1:"Heritage", ttag2:"Nature", ttag3:"Gastronomy", footer_msg:"With all our love" },
+  zh: { event_label_short:"公证婚礼", event_label:"公证婚礼", date:"周六 [日期]", time_venue:"[时间] · [市政厅 / 场地] · [城市]", rsvp:"确认出席", playlist:"婚礼歌单", gift:"送上心意", n01:"〇一", prog_title:"当天行程", p1t:"宾客抵达", p1d:"[可选说明]", p2t:"公证仪式", p2d:"[可选说明]", p3t:"鸡尾酒会", p3d:"[可选说明]", p4t:"午宴", p4d:"[可选说明]", n02:"〇二", transport_title:"如何到达", map_label:"在此嵌入 Google 地图", tr_train:"乘火车", tr_train_d:"[最近车站] — [从主要城市出发]", tr_car:"自驾", tr_car_d:"[高速公路] · [从巴黎出发时间] · 现场停车", tr_plane:"乘飞机", tr_plane_d:"[最近机场] · 接驳班车", n03:"〇三", hotel_title:"住宿推荐", htag1:"豪华", htag2:"舒适", htag3:"经济", n04:"〇四", tour_title:"周边景点", ttag1:"历史遗迹", ttag2:"自然风光", ttag3:"美食", footer_msg:"满怀爱意" }
+};
+
+const LANG_KEY = 'civil_lang';
+let lang = localStorage.getItem(LANG_KEY) || null;
+
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem(LANG_KEY, l);
+  const t = T[l];
+  document.querySelectorAll('.t[data-key]').forEach(el => { const v = t[el.dataset.key]; if (v !== undefined) el.textContent = v; });
+  document.querySelectorAll('.lang-mini, .lang-choice').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  document.documentElement.lang = l === 'zh' ? 'zh' : l === 'en' ? 'en' : 'fr';
+}
+
+// Modal logic
+const modal = document.getElementById('langModal');
+if (lang) {
+  modal.classList.add('hidden');
+  applyLang(lang);
+} else {
+  applyLang('fr'); // default content while modal is showing
+}
+
+document.querySelectorAll('.lang-choice').forEach(b => {
+  b.addEventListener('click', () => {
+    applyLang(b.dataset.lang);
+    modal.style.opacity = '0';
+    setTimeout(() => modal.classList.add('hidden'), 350);
+  });
+});
+document.querySelectorAll('.lang-mini').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>

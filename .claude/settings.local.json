@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($env:PATH = $env:PATH + \";C:\\\\Program Files\\\\GitHub CLI\"; Set-Location \"C:\\\\Users\\\\jubau\\\\Documents\\\\My projects\\\\wedding\"; git init; git add .; git commit -m \"Initial commit - wedding website\" 2>&1)"
+    ]
+  }
+}
