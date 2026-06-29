@@ -26,17 +26,6 @@
     .hub-sub{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);}
     .hub-sep{width:2.5rem;height:1px;background:linear-gradient(90deg,transparent,rgba(184,152,112,.5),transparent);margin:1.5rem auto 0;}
 
-    /* VERSION SELECTOR */
-    .version-selector{display:flex;align-items:center;justify-content:center;gap:0;margin:2rem auto;border:1px solid var(--gd);overflow:hidden;max-width:380px;}
-    .v-btn{flex:1;background:none;border:none;border-right:1px solid var(--gd);padding:.65rem 1rem;font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;}
-    .v-btn:last-child{border-right:none;}
-    .v-btn.active{background:var(--gold);color:#fff;}
-    .v-btn:hover:not(.active){color:var(--text);background:rgba(184,152,112,.1);}
-
-    /* VERSION INFO */
-    .version-info{text-align:center;margin-bottom:2rem;min-height:2.5rem;}
-    .version-desc{font-size:.78rem;color:var(--muted);letter-spacing:.06em;}
-
     /* EVENT CARDS GRID */
     .events{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;width:100%;max-width:960px;margin:0 auto;}
 
@@ -74,56 +63,6 @@
     .v1-chinois .card-muted{color:rgba(250,240,224,.38);}
     .v1-chinois .card-arrow{color:#C9A84C;}
 
-    /* V2 — Graphique */
-    .v2-civil{background:#FAFAFA;color:#0C0B0A;}
-    .v2-civil::before{background:#EFEFEF;}
-    .v2-civil .card-num{color:#B89870;}
-    .v2-civil .card-title{font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:-.01em;}
-    .v2-civil .card-tag{border-color:#ddd;color:#888;}
-    .v2-civil .card-muted{color:rgba(12,11,10,.4);}
-    .v2-civil .card-arrow{color:#B89870;}
-
-    .v2-laique{background:#1C3522;color:#fff;}
-    .v2-laique::before{background:#243E2A;}
-    .v2-laique .card-num{color:#A0C4A8;}
-    .v2-laique .card-title{font-family:'Cormorant Garamond',serif;font-style:italic;color:#fff;}
-    .v2-laique .card-tag{border-color:rgba(160,196,168,.3);color:#A0C4A8;}
-    .v2-laique .card-muted{color:rgba(255,255,255,.35);}
-    .v2-laique .card-arrow{color:#A0C4A8;}
-
-    .v2-chinois{background:#FAF0E0;color:#1A0500;}
-    .v2-chinois::before{background:#F0E2C8;}
-    .v2-chinois .card-num{color:#9B1C1C;}
-    .v2-chinois .card-title{font-family:'Noto Serif SC',serif;color:#9B1C1C;}
-    .v2-chinois .card-tag{border-color:rgba(155,28,28,.25);color:#9B1C1C;}
-    .v2-chinois .card-muted{color:rgba(26,5,0,.38);}
-    .v2-chinois .card-arrow{color:#9B1C1C;}
-
-    /* V3 — Poétique */
-    .v3-civil{background:#FEFCF8;color:#2A201A;}
-    .v3-civil::before{background:#F7F2EA;}
-    .v3-civil .card-num{color:#C4A882;}
-    .v3-civil .card-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;}
-    .v3-civil .card-tag{border-color:rgba(196,168,130,.3);color:#C4A882;}
-    .v3-civil .card-muted{color:rgba(42,32,26,.38);}
-    .v3-civil .card-arrow{color:#C4A882;}
-
-    .v3-laique{background:#FBF6F2;color:#2A1A18;}
-    .v3-laique::before{background:#F4EDE6;}
-    .v3-laique .card-num{color:#C49090;}
-    .v3-laique .card-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;}
-    .v3-laique .card-tag{border-color:rgba(196,144,144,.3);color:#C49090;}
-    .v3-laique .card-muted{color:rgba(42,26,24,.38);}
-    .v3-laique .card-arrow{color:#C49090;}
-
-    .v3-chinois{background:#F8EDD8;color:#2A0A08;}
-    .v3-chinois::before{background:#EFE0C0;}
-    .v3-chinois .card-num{color:#7B1414;}
-    .v3-chinois .card-title{font-family:'Noto Serif SC',serif;font-weight:300;color:#7B1414;}
-    .v3-chinois .card-tag{border-color:rgba(123,20,20,.2);color:#7B1414;}
-    .v3-chinois .card-muted{color:rgba(42,10,8,.38);}
-    .v3-chinois .card-arrow{color:#7B1414;}
-
     /* Shared card elements */
     .card-num{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.1rem;position:relative;z-index:1;}
     .card-title{font-size:clamp(1.3rem,2vw,1.8rem);font-weight:300;line-height:1.15;margin-bottom:.55rem;position:relative;z-index:1;}
@@ -133,20 +72,12 @@
     .event-card:hover .card-arrow{transform:translateX(5px);}
 
     /* Cross dividers */
-    .v1-civil,.v2-civil,.v3-civil{border-right:1.5px solid rgba(255,255,255,.1);}
-    .v1-laique,.v2-laique,.v3-laique{border-right:1.5px solid rgba(255,255,255,.1);}
-
-    /* COMPARE LINK */
-    .compare-bar{text-align:center;padding:2.5rem 2rem;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:1rem;}
-    .compare-link{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--gd);padding:.7rem 1.5rem;transition:all .25s;}
-    .compare-link:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
-    .compare-note{font-size:.68rem;color:var(--muted);}
+    .v1-civil,.v1-laique{border-right:1.5px solid rgba(255,255,255,.1);}
 
     @media(max-width:720px){
       .events{grid-template-columns:1fr;gap:1.5px;}
-      .v1-civil,.v2-civil,.v3-civil,.v1-laique,.v2-laique,.v3-laique{border-right:none;border-bottom:1.5px solid rgba(255,255,255,.08);}
+      .v1-civil,.v1-laique{border-right:none;border-bottom:1.5px solid rgba(255,255,255,.08);}
       .event-card{min-height:200px;padding:2rem 1.5rem 1.75rem;}
-      .version-selector{max-width:100%;margin:2rem 1.25rem;}
     }
     @media(max-width:480px){body{padding:0;}.hub-header{padding:2rem 1.25rem 1.5rem;}}
   </style>
@@ -159,116 +90,32 @@
   <div class="hub-sep"></div>
 </header>
 
-<!-- VERSION SWITCHER -->
-<div class="version-selector">
-  <button class="v-btn active" data-v="1">V1 · Classique</button>
-  <button class="v-btn" data-v="2">V2 · Graphique</button>
-  <button class="v-btn" data-v="3">V3 · Poétique</button>
-</div>
-<div class="version-info">
-  <p class="version-desc" id="vdesc">Serif élégant · ivoire, champagne & rouge Tang · héro fendu asymétrique</p>
-</div>
-
-<!-- EVENT CARDS — shown/hidden per version -->
+<!-- EVENT CARDS -->
 <nav class="events" aria-label="Événements">
 
-  <!-- V1 -->
-  <a class="event-card v1-civil" href="civil.html" data-v="1">
+  <a class="event-card v1-civil" href="civil.html">
     <span class="card-num">01</span>
     <h2 class="card-title">Mariage Civil</h2>
     <span class="card-tag">Classique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Mairie / Lieu]<br>[Ville]</p>
+    <p class="card-muted">Date à confirmer<br>Mairie de Neuilly-Plaisance<br>6 Rue du Général de Gaulle, 93360 Neuilly-Plaisance</p>
     <span class="card-arrow">→</span>
   </a>
-  <a class="event-card v1-laique" href="laique.html" data-v="1">
+  <a class="event-card v1-laique" href="laique.html">
     <span class="card-num">02</span>
     <h2 class="card-title">Mariage Laïque</h2>
     <span class="card-tag">Classique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Domaine / Lieu]<br>[Ville]</p>
+    <p class="card-muted">Samedi 15 Mai 2027<br>Château de Roussillon<br>Saint-Pierre-Lafeuille</p>
     <span class="card-arrow">→</span>
   </a>
-  <a class="event-card v1-chinois" href="chinois.html" data-v="1">
+  <a class="event-card v1-chinois" href="chinois.html">
     <span class="card-num">〇三</span>
     <h2 class="card-title">中式传统婚礼</h2>
     <span class="card-tag">Classique</span>
-    <p class="card-muted">[星期] [日期]<br>[时间] · [场地]<br>[城市]</p>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <!-- V2 -->
-  <a class="event-card v2-civil" href="v2-civil.html" data-v="2" style="display:none">
-    <span class="card-num">01</span>
-    <h2 class="card-title">Mariage Civil</h2>
-    <span class="card-tag">Graphique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Mairie / Lieu]<br>[Ville]</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v2-laique" href="v2-laique.html" data-v="2" style="display:none">
-    <span class="card-num">02</span>
-    <h2 class="card-title">Mariage Laïque</h2>
-    <span class="card-tag">Graphique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Domaine / Lieu]<br>[Ville]</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v2-chinois" href="v2-chinois.html" data-v="2" style="display:none">
-    <span class="card-num">〇三</span>
-    <h2 class="card-title">中式传统婚礼</h2>
-    <span class="card-tag">Graphique</span>
-    <p class="card-muted">[星期] [日期]<br>[时间] · [场地]<br>[城市]</p>
-    <span class="card-arrow">→</span>
-  </a>
-
-  <!-- V3 -->
-  <a class="event-card v3-civil" href="v3-civil.html" data-v="3" style="display:none">
-    <span class="card-num">i</span>
-    <h2 class="card-title">Mariage Civil</h2>
-    <span class="card-tag">Poétique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Mairie / Lieu]<br>[Ville]</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v3-laique" href="v3-laique.html" data-v="3" style="display:none">
-    <span class="card-num">ii</span>
-    <h2 class="card-title">Mariage Laïque</h2>
-    <span class="card-tag">Poétique</span>
-    <p class="card-muted">[Jour, Date]<br>[Heure] · [Domaine / Lieu]<br>[Ville]</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v3-chinois" href="v3-chinois.html" data-v="3" style="display:none">
-    <span class="card-num">一</span>
-    <h2 class="card-title">中式传统婚礼</h2>
-    <span class="card-tag">Poétique</span>
-    <p class="card-muted">[星期] [日期]<br>[时间] · [场地]<br>[城市]</p>
+    <p class="card-muted">2027年7月25日（星期日）<br>[时间] · [场地]<br>[城市]</p>
     <span class="card-arrow">→</span>
   </a>
 
 </nav>
 
-<div class="compare-bar">
-  <a class="compare-link" href="compare.html">⊞ Comparer les 3 versions côte à côte</a>
-  <p class="compare-note">Chaque page est indépendante — partagez l'URL directement avec vos invités</p>
-</div>
-
-<script>
-const descs = {
-  '1':'Serif élégant · ivoire, champagne & rouge Tang · héro fendu asymétrique',
-  '2':'Éditorial bold · DM Serif + Jost · contrastes forts · mise en page typographique',
-  '3':'Romantique & aérien · EB Garamond · tons doux · layout centré & intime'
-};
-
-let activeV = localStorage.getItem('hub_version') || '1';
-
-function setVersion(v) {
-  activeV = v;
-  localStorage.setItem('hub_version', v);
-  document.querySelectorAll('.v-btn').forEach(b => b.classList.toggle('active', b.dataset.v === v));
-  document.querySelectorAll('.event-card').forEach(c => {
-    c.style.display = c.dataset.v === v ? 'flex' : 'none';
-  });
-  document.getElementById('vdesc').textContent = descs[v];
-}
-
-document.querySelectorAll('.v-btn').forEach(b => b.addEventListener('click', () => setVersion(b.dataset.v)));
-setVersion(activeV);
-</script>
 </body>
 </html>
