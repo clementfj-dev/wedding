@@ -306,8 +306,6 @@
 <div class="actions-bar reveal">
   <a class="action-link" href="#" target="_blank" rel="noopener"><span class="action-ico">囍</span><span class="t" data-key="rsvp"></span><span class="action-brand">— RSVP</span></a>
   <span class="action-sep">·</span>
-  <a class="action-link" href="#" target="_blank" rel="noopener"><span class="action-ico">♫</span><span class="t" data-key="playlist"></span><span class="action-brand">— Spotify</span></a>
-  <span class="action-sep">·</span>
   <a class="action-link" href="#" target="_blank" rel="noopener"><span class="action-ico">礼</span><span class="t" data-key="gift"></span><span class="action-brand">— Lydia</span></a>
 </div>
 
@@ -343,9 +341,21 @@
   <div class="section-inner">
     <div class="section-hd"><span class="section-num t" data-key="n03"></span><h2 class="section-title t" data-key="hotel_title"></h2></div>
     <div class="cards">
-      <div class="card"><span class="card-tag t" data-key="htag1"></span><h3>[Hôtel prestige]</h3><p>[Adresse] · ★★★★★<br>[Tarif / nuit]<br><a href="#">Réserver →</a></p></div>
-      <div class="card"><span class="card-tag t" data-key="htag2"></span><h3>[Hôtel confort]</h3><p>[Adresse] · ★★★<br>[Tarif / nuit]<br><a href="#">Réserver →</a></p></div>
-      <div class="card"><span class="card-tag t" data-key="htag3"></span><h3>[Option économique]</h3><p>[Adresse] · dès [XX]€/nuit<br><a href="#">Voir →</a></p></div>
+      <div class="card">
+        <span class="card-tag t" data-key="htag1"></span>
+        <h3>Sheraton Baotou Hotel</h3>
+        <p>66 Shaoxian Road, Qingshan District · ★★★★★<br>Disponible sur Booking.com et Marriott.com<br><a href="https://www.booking.com/hotel/cn/sheraton-baotou.html" target="_blank" rel="noopener">Réserver →</a></p>
+      </div>
+      <div class="card">
+        <span class="card-tag t" data-key="htag2"></span>
+        <h3>Wanda Realm Baotou</h3>
+        <p>Wanda Plaza, Baotou · ★★★★<br>Réservation via Booking.com ou Trip.com<br><a href="https://www.booking.com/searchresults.html?ss=Baotou&stars=4" target="_blank" rel="noopener">Voir les options →</a></p>
+      </div>
+      <div class="card">
+        <span class="card-tag t" data-key="htag3"></span>
+        <h3>Trip.com — Baotou</h3>
+        <p>Large sélection d'hôtels 3★ dès ~40 €/nuit, interface en anglais, paiement CB accepté.<br><a href="https://www.trip.com/hotels/list?city=613" target="_blank" rel="noopener">Parcourir →</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -355,9 +365,24 @@
   <div class="section-inner">
     <div class="section-hd"><span class="section-num t" data-key="n04"></span><h2 class="section-title t" data-key="tour_title"></h2></div>
     <div class="cards">
-      <div class="card"><span class="card-tag t" data-key="ttag1"></span><h3>[Site / activité 1]</h3><p>[Description courte.]</p></div>
-      <div class="card"><span class="card-tag t" data-key="ttag2"></span><h3>[Site / activité 2]</h3><p>[Description courte.]</p></div>
-      <div class="card"><span class="card-tag t" data-key="ttag3"></span><h3>[Site / activité 3]</h3><p>[Description courte.]</p></div>
+      <div class="card">
+        <span class="card-tag t" data-key="ttag1"></span>
+        <div style="font-size:2rem;margin:.5rem 0 .65rem">🏜️</div>
+        <h3 class="t" data-key="t1_name"></h3>
+        <p class="t" data-key="t1_desc"></p>
+      </div>
+      <div class="card">
+        <span class="card-tag t" data-key="ttag2"></span>
+        <div style="font-size:2rem;margin:.5rem 0 .65rem">🛕</div>
+        <h3 class="t" data-key="t2_name"></h3>
+        <p class="t" data-key="t2_desc"></p>
+      </div>
+      <div class="card">
+        <span class="card-tag t" data-key="ttag3"></span>
+        <div style="font-size:2rem;margin:.5rem 0 .65rem">🏯</div>
+        <h3 class="t" data-key="t3_name"></h3>
+        <p class="t" data-key="t3_desc"></p>
+      </div>
     </div>
   </div>
 </section>
@@ -369,9 +394,9 @@
 
 <script>
 const T = {
-  fr: { event_label:"Mariage Traditionnel Chinois", date:"Dimanche 25 Juillet 2027", time_venue:"[Heure] · [Lieu] · [Ville]", rsvp:"Confirmer ma présence", playlist:"Notre playlist", gift:"Offrir un cadeau", n01:"01", prog_title:"Programme de la journée", t1h:"10h00", p1t:"Accueil des invités", p1d:"[Détail optionnel]", t2h:"11h00", p2t:"Cérémonie traditionnelle", p2d:"[Rite du thé, échange de vœux]", t3h:"12h30", p3t:"Banquet de mariage", p3d:"[Détail optionnel]", t4h:"18h00", p4t:"Soirée festive", p4d:"[Détail optionnel]", t5h:"23h00", p5t:"Fin de soirée", p5d:"[Détail optionnel]", n02:"02", transport_title:"Comment venir", map_label:"Intégrez votre iframe Google Maps ici", tr_train:"En train", tr_train_d:"[Gare la plus proche] — [trajet depuis ville principale]", tr_car:"En voiture", tr_car_d:"[Autoroute] · [Durée depuis Paris] · Parking sur place", tr_plane:"En avion", tr_plane_d:"[Aéroport le plus proche] · Navettes disponibles", n03:"03", hotel_title:"Hébergements", htag1:"Prestige", htag2:"Confort", htag3:"Économique", n04:"04", tour_title:"À découvrir", ttag1:"Patrimoine", ttag2:"Nature", ttag3:"Gastronomie", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" },
-  en: { event_label:"Traditional Chinese Wedding", date:"Sunday 25 July 2027", time_venue:"[Time] · [Venue] · [City]", rsvp:"Confirm attendance", playlist:"Our playlist", gift:"Give a gift", n01:"01", prog_title:"Day Programme", t1h:"10:00", p1t:"Guest arrival", p1d:"[Optional detail]", t2h:"11:00", p2t:"Traditional ceremony", p2d:"[Tea ceremony, exchange of vows]", t3h:"12:30", p3t:"Wedding banquet", p3d:"[Optional detail]", t4h:"18:00", p4t:"Evening celebration", p4d:"[Optional detail]", t5h:"23:00", p5t:"End of evening", p5d:"[Optional detail]", n02:"02", transport_title:"Getting there", map_label:"Embed your Google Maps iframe here", tr_train:"By train", tr_train_d:"[Nearest station] — [journey from main city]", tr_car:"By car", tr_car_d:"[Motorway] · [Time from Paris] · Parking on site", tr_plane:"By plane", tr_plane_d:"[Nearest airport] · Shuttles available", n03:"03", hotel_title:"Accommodation", htag1:"Prestige", htag2:"Comfort", htag3:"Budget", n04:"04", tour_title:"Discover the area", ttag1:"Heritage", ttag2:"Nature", ttag3:"Gastronomy", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" },
-  zh: { event_label:"中式传统婚礼", date:"2027年7月25日（星期日）", time_venue:"[时间] · [场地] · [城市]", rsvp:"确认出席", playlist:"婚礼歌单", gift:"送上心意", n01:"〇一", prog_title:"当天行程", t1h:"十时", p1t:"宾客抵达", p1d:"[可选说明]", t2h:"十一时", p2t:"传统婚礼仪式", p2d:"[敬茶礼、交杯酒、宣誓]", t3h:"十二时半", p3t:"婚宴", p3d:"[可选说明]", t4h:"十八时", p4t:"晚宴及庆典", p4d:"[可选说明]", t5h:"二十三时", p5t:"夜晚结束", p5d:"[可选说明]", n02:"〇二", transport_title:"如何到达", map_label:"在此嵌入 Google 地图", tr_train:"乘火车", tr_train_d:"[最近车站] — [从主要城市出发]", tr_car:"自驾", tr_car_d:"[高速公路] · [从巴黎出发时间] · 现场停车", tr_plane:"乘飞机", tr_plane_d:"[最近机场] · 接驳班车", n03:"〇三", hotel_title:"住宿推荐", htag1:"豪华", htag2:"舒适", htag3:"经济", n04:"〇四", tour_title:"周边景点", ttag1:"历史遗迹", ttag2:"自然风光", ttag3:"当地美食", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" }
+  fr: { event_label:"Mariage Traditionnel Chinois", date:"Dimanche 25 Juillet 2027", time_venue:"[Heure] · [Lieu] · Baotou, Mongolie Intérieure, Chine", rsvp:"Confirmer ma présence", gift:"Offrir un cadeau", n01:"01", prog_title:"Programme de la journée", t1h:"10h00", p1t:"Accueil des invités", p1d:"[Détail optionnel]", t2h:"11h00", p2t:"Cérémonie traditionnelle", p2d:"[Rite du thé, échange de vœux]", t3h:"12h30", p3t:"Banquet de mariage", p3d:"[Détail optionnel]", t4h:"18h00", p4t:"Soirée festive", p4d:"[Détail optionnel]", t5h:"23h00", p5t:"Fin de soirée", p5d:"[Détail optionnel]", n02:"02", transport_title:"Comment venir depuis la France", map_label:"Intégrez votre iframe Google Maps ici", tr_plane:"Vol depuis Paris CDG", tr_plane_d:"Vol direct Paris CDG → Pékin Capital avec Air France (~10h). Depuis Pékin, vol intérieur vers Baotou (~2h, Air China ou China Southern).", tr_train:"Train Pékin → Baotou", tr_train_d:"Depuis Pékin, train à grande vitesse (~8-9h) ou train de nuit (~11h). Billets sur Trip.com ou Rail.ninja.", tr_car:"Via Hohhot (alternative)", tr_car_d:"Vol intérieur Pékin → Hohhot (~1h), puis taxi ou navette vers Baotou (~2h). Option plus rapide si pas de vol direct vers Baotou.", n03:"03", hotel_title:"Hébergements à Baotou", htag1:"Prestige", htag2:"Confort", htag3:"Économique", n04:"04", tour_title:"À découvrir près de Baotou", ttag1:"Nature & Aventure", ttag2:"Culture & Spiritualité", ttag3:"Histoire mongole", t1_name:"响沙湾 · Xiangshawan", t1_desc:"Les dunes chantantes de Mongolie intérieure. À 1h de Baotou en taxi ou navette. Randonnée, chameau, toboggans de sable.", t2_name:"五当召 · Monastère Wudang Zhao", t2_desc:"Splendide monastère tibétain bouddhiste du XVIIe s., l'un des plus grands de Mongolie intérieure. À 70 km de Baotou.", t3_name:"成吉思汗陵 · Mausolée de Gengis Khan", t3_desc:"Mausolée emblématique à Ordos, ~3h de Baotou. Accessible en train ou bus. Incontournable pour l'histoire mongole.", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" },
+  en: { event_label:"Traditional Chinese Wedding", date:"Sunday 25 July 2027", time_venue:"[Time] · [Venue] · Baotou, Inner Mongolia, China", rsvp:"Confirm attendance", gift:"Give a gift", n01:"01", prog_title:"Day Programme", t1h:"10:00", p1t:"Guest arrival", p1d:"[Optional detail]", t2h:"11:00", p2t:"Traditional ceremony", p2d:"[Tea ceremony, exchange of vows]", t3h:"12:30", p3t:"Wedding banquet", p3d:"[Optional detail]", t4h:"18:00", p4t:"Evening celebration", p4d:"[Optional detail]", t5h:"23:00", p5t:"End of evening", p5d:"[Optional detail]", n02:"02", transport_title:"Getting there from France", map_label:"Embed your Google Maps iframe here", tr_plane:"Flight from Paris CDG", tr_plane_d:"Direct flight Paris CDG → Beijing Capital with Air France (~10h). From Beijing, domestic flight to Baotou (~2h, Air China or China Southern).", tr_train:"Train Beijing → Baotou", tr_train_d:"From Beijing, high-speed train (~8-9h) or overnight train (~11h). Book on Trip.com or Rail.ninja.", tr_car:"Via Hohhot (alternative)", tr_car_d:"Domestic flight Beijing → Hohhot (~1h), then taxi or shuttle to Baotou (~2h). Faster if no direct flight to Baotou.", n03:"03", hotel_title:"Accommodation in Baotou", htag1:"Prestige", htag2:"Comfort", htag3:"Budget", n04:"04", tour_title:"Discover near Baotou", ttag1:"Nature & Adventure", ttag2:"Culture & Spirituality", ttag3:"Mongol History", t1_name:"响沙湾 · Xiangshawan", t1_desc:"The singing sand dunes of Inner Mongolia. 1h from Baotou by taxi or shuttle. Camel rides, sandboarding, hiking.", t2_name:"五当召 · Wudang Zhao Monastery", t2_desc:"Splendid 17th-century Tibetan Buddhist monastery, one of the largest in Inner Mongolia. 70 km from Baotou.", t3_name:"成吉思汗陵 · Genghis Khan Mausoleum", t3_desc:"Iconic mausoleum in Ordos, ~3h from Baotou. Accessible by train or bus. A must for Mongol history.", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" },
+  zh: { event_label:"中式传统婚礼", date:"2027年7月25日（星期日）", time_venue:"[时间] · [场地] · 包头，内蒙古，中国", rsvp:"确认出席", gift:"送上心意", n01:"〇一", prog_title:"当天行程", t1h:"十时", p1t:"宾客抵达", p1d:"[可选说明]", t2h:"十一时", p2t:"传统婚礼仪式", p2d:"[敬茶礼、交杯酒、宣誓]", t3h:"十二时半", p3t:"婚宴", p3d:"[可选说明]", t4h:"十八时", p4t:"晚宴及庆典", p4d:"[可选说明]", t5h:"二十三时", p5t:"夜晚结束", p5d:"[可选说明]", n02:"〇二", transport_title:"从法国如何到达", map_label:"在此嵌入 Google 地图", tr_plane:"从巴黎CDG乘飞机", tr_plane_d:"法航直飞巴黎CDG→北京首都（约10小时），再从北京乘国内航班飞往包头（约2小时，中国国航或南方航空）。", tr_train:"北京→包头火车", tr_train_d:"从北京乘高铁（约8-9小时）或夜间火车（约11小时）。可在Trip.com或12306网站购票。", tr_car:"经由呼和浩特（备选）", tr_car_d:"北京→呼和浩特国内航班（约1小时），再乘出租车或班车前往包头（约2小时）。如无直飞包头航班可选此路线。", n03:"〇三", hotel_title:"包头住宿", htag1:"豪华", htag2:"舒适", htag3:"经济", n04:"〇四", tour_title:"包头周边景点", ttag1:"自然与探险", ttag2:"文化与宗教", ttag3:"蒙古历史", t1_name:"响沙湾", t1_desc:"内蒙古著名沙漠旅游区，距包头约1小时车程。可体验骑骆驼、沙漠滑沙、徒步等活动。", t2_name:"五当召", t2_desc:"建于17世纪的藏传佛教寺庙，内蒙古最大的喇嘛寺之一。距包头约70公里。", t3_name:"成吉思汗陵", t3_desc:"位于鄂尔多斯的标志性陵园，距包头约3小时。可乘火车或大巴前往，是了解蒙古历史的必去之地。", footer_cn:"百年好合 · 永结同心", footer_lat:"BINGER & CLÉMENT" }
 };
 
 const LANG_KEY = 'chinois_lang';
