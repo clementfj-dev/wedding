@@ -68,6 +68,10 @@
     /* Botanical SVG corners */
     .botanical-tl { position: absolute; top: -1rem; left: -1rem; opacity: .18; pointer-events: none; }
     .botanical-br { position: absolute; bottom: -1rem; right: -1rem; transform: rotate(180deg); opacity: .15; pointer-events: none; }
+    .floral-left { position: absolute; left: 0; top: 0; bottom: 0; pointer-events: none; z-index: 1; opacity: .22; }
+    .floral-left svg { height: 100%; width: auto; display: block; }
+    .sylvestre-right { position: absolute; right: 0; top: 0; bottom: 0; pointer-events: none; z-index: 1; opacity: .22; }
+    .sylvestre-right svg { height: 100%; width: auto; display: block; }
 
     /* Illustration placeholder */
     .ill-wrap { width: min(440px, 92%); height: 38vh; max-height: 280px; margin: 0 auto 1.75rem; position: relative; flex-shrink: 0; }
@@ -163,7 +167,7 @@
       .hero { padding: 3.5rem 1.25rem 2rem; }
       .ill-wrap { height: 32vh; max-height: 210px; }
       .couple-name { font-size: 2.6rem; }
-      .botanical-tl, .botanical-br { display: none; }
+      .botanical-tl, .botanical-br, .floral-left, .sylvestre-right { display: none; }
     }
   </style>
   <template id="__bundler_thumbnail" data-bg-color="#1C2B1F">
@@ -219,6 +223,127 @@
 
 <!-- ── HERO ── -->
 <section class="hero" id="top">
+
+  <!-- LEFT: floral (glycine, lilas, tournesol) -->
+  <div class="floral-left" aria-hidden="true">
+    <svg viewBox="0 0 90 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- Vine -->
+      <path d="M18 0 C14 80 22 150 16 240 C10 330 20 400 14 500 C8 600 18 680 12 800" stroke="#5E8F65" stroke-width="1.5" opacity=".65"/>
+      <!-- Glycine cluster 1 (~y=150) -->
+      <path d="M18 128 C30 123 46 126 56 128" stroke="#5E8F65" stroke-width="1.2" opacity=".6"/>
+      <path d="M56 128 C57 138 56 150 55 165" stroke="#5E8F65" stroke-width="1" opacity=".55"/>
+      <ellipse cx="55" cy="168" rx="4.5" ry="6" fill="#C49090" opacity=".6"/>
+      <ellipse cx="49" cy="175" rx="4.5" ry="6" fill="#C49090" opacity=".55"/>
+      <ellipse cx="61" cy="175" rx="4.5" ry="6" fill="#C49090" opacity=".55"/>
+      <ellipse cx="52" cy="183" rx="4.5" ry="6" fill="#C49090" opacity=".5"/>
+      <ellipse cx="58" cy="183" rx="4.5" ry="6" fill="#C49090" opacity=".5"/>
+      <ellipse cx="55" cy="191" rx="4" ry="5.5" fill="#C49090" opacity=".45"/>
+      <ellipse cx="49" cy="191" rx="3.5" ry="5" fill="#C49090" opacity=".4"/>
+      <ellipse cx="61" cy="191" rx="3.5" ry="5" fill="#C49090" opacity=".4"/>
+      <ellipse cx="37" cy="118" rx="16" ry="7" transform="rotate(-20 37 118)" fill="#9EC5A3" opacity=".5"/>
+      <ellipse cx="50" cy="120" rx="13" ry="6" transform="rotate(15 50 120)" fill="#9EC5A3" opacity=".45"/>
+      <!-- Glycine cluster 2 (~y=370) -->
+      <path d="M16 345 C28 340 44 342 58 344" stroke="#5E8F65" stroke-width="1.2" opacity=".55"/>
+      <path d="M58 344 C59 354 58 366 57 380" stroke="#5E8F65" stroke-width="1" opacity=".5"/>
+      <ellipse cx="57" cy="383" rx="4.5" ry="6" fill="#C49090" opacity=".55"/>
+      <ellipse cx="51" cy="390" rx="4.5" ry="6" fill="#C49090" opacity=".5"/>
+      <ellipse cx="63" cy="390" rx="4.5" ry="6" fill="#C49090" opacity=".5"/>
+      <ellipse cx="54" cy="398" rx="4" ry="5.5" fill="#C49090" opacity=".45"/>
+      <ellipse cx="60" cy="398" rx="4" ry="5.5" fill="#C49090" opacity=".45"/>
+      <ellipse cx="57" cy="406" rx="3.5" ry="5" fill="#C49090" opacity=".4"/>
+      <ellipse cx="32" cy="335" rx="15" ry="6.5" transform="rotate(-18 32 335)" fill="#9EC5A3" opacity=".48"/>
+      <!-- Lilas cluster (~y=530) -->
+      <path d="M14 508 C24 503 40 506 50 508" stroke="#5E8F65" stroke-width="1.2" opacity=".55"/>
+      <path d="M50 508 C53 514 52 520 51 528" stroke="#5E8F65" stroke-width=".9" opacity=".5"/>
+      <path d="M50 513 C44 516 40 522 39 530" stroke="#5E8F65" stroke-width=".8" opacity=".45"/>
+      <path d="M50 513 C56 516 60 522 61 529" stroke="#5E8F65" stroke-width=".8" opacity=".45"/>
+      <circle cx="51" cy="532" r="3" fill="#C49090" opacity=".62"/>
+      <circle cx="45" cy="536" r="3" fill="#C49090" opacity=".57"/>
+      <circle cx="57" cy="536" r="3" fill="#C49090" opacity=".57"/>
+      <circle cx="39" cy="533" r="2.5" fill="#C49090" opacity=".5"/>
+      <circle cx="48" cy="541" r="3" fill="#C49090" opacity=".57"/>
+      <circle cx="54" cy="541" r="3" fill="#C49090" opacity=".57"/>
+      <circle cx="61" cy="532" r="2.5" fill="#C49090" opacity=".5"/>
+      <circle cx="44" cy="545" r="2.5" fill="#C49090" opacity=".48"/>
+      <circle cx="51" cy="546" r="2.5" fill="#C49090" opacity=".48"/>
+      <circle cx="57" cy="545" r="2.5" fill="#C49090" opacity=".48"/>
+      <ellipse cx="28" cy="498" rx="14" ry="6" transform="rotate(-22 28 498)" fill="#9EC5A3" opacity=".45"/>
+      <ellipse cx="42" cy="501" rx="12" ry="5" transform="rotate(18 42 501)" fill="#9EC5A3" opacity=".42"/>
+      <!-- Tournesol (~y=690) -->
+      <path d="M15 672 C22 662 36 657 46 660" stroke="#5E8F65" stroke-width="1.5" opacity=".6"/>
+      <path d="M46 660 L46 642" stroke="#5E8F65" stroke-width="1.5" opacity=".6"/>
+      <ellipse cx="46" cy="632" rx="5" ry="11" fill="#9EC5A3" opacity=".55"/>
+      <ellipse cx="46" cy="632" rx="5" ry="11" transform="rotate(45 46 632)" fill="#9EC5A3" opacity=".5"/>
+      <ellipse cx="46" cy="632" rx="5" ry="11" transform="rotate(90 46 632)" fill="#9EC5A3" opacity=".55"/>
+      <ellipse cx="46" cy="632" rx="5" ry="11" transform="rotate(135 46 632)" fill="#9EC5A3" opacity=".5"/>
+      <circle cx="46" cy="632" r="9" fill="#C49090" opacity=".65"/>
+      <circle cx="46" cy="632" r="5" fill="#5E8F65" opacity=".6"/>
+      <ellipse cx="30" cy="648" rx="15" ry="6.5" transform="rotate(-25 30 648)" fill="#9EC5A3" opacity=".45"/>
+      <ellipse cx="59" cy="652" rx="13" ry="5.5" transform="rotate(20 59 652)" fill="#9EC5A3" opacity=".42"/>
+      <!-- Feuilles éparses -->
+      <ellipse cx="24" cy="268" rx="14" ry="5.5" transform="rotate(-20 24 268)" fill="#9EC5A3" opacity=".4"/>
+      <ellipse cx="20" cy="448" rx="13" ry="5" transform="rotate(-25 20 448)" fill="#9EC5A3" opacity=".38"/>
+      <ellipse cx="18" cy="760" rx="14" ry="5.5" transform="rotate(-20 18 760)" fill="#9EC5A3" opacity=".33"/>
+    </svg>
+  </div>
+
+  <!-- RIGHT: sylvestre (chêne, châtaignier) -->
+  <div class="sylvestre-right" aria-hidden="true">
+    <svg viewBox="0 0 90 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- Branche principale -->
+      <path d="M76 0 C73 80 80 140 70 220 C60 300 76 360 66 450 C56 540 72 600 62 720 C52 800 65 800 60 800" stroke="#5E8F65" stroke-width="2" opacity=".6"/>
+      <!-- Chêne branche 1 (~y=110) -->
+      <path d="M74 92 C63 87 50 82 36 84" stroke="#5E8F65" stroke-width="1.5" opacity=".6"/>
+      <ellipse cx="39" cy="74" rx="18" ry="8" transform="rotate(8 39 74)" fill="#9EC5A3" opacity=".5"/>
+      <ellipse cx="31" cy="83" rx="16" ry="7" transform="rotate(-8 31 83)" fill="#9EC5A3" opacity=".45"/>
+      <ellipse cx="50" cy="79" rx="14" ry="6.5" transform="rotate(22 50 79)" fill="#9EC5A3" opacity=".45"/>
+      <ellipse cx="27" cy="92" rx="13" ry="6" transform="rotate(-15 27 92)" fill="#9EC5A3" opacity=".4"/>
+      <line x1="55" y1="80" x2="26" y2="87" stroke="#5E8F65" stroke-width=".8" opacity=".4"/>
+      <!-- Glands -->
+      <ellipse cx="36" cy="98" rx="4.5" ry="5.5" fill="#9EC5A3" opacity=".38"/>
+      <ellipse cx="36" cy="93" rx="5" ry="2.5" fill="#5E8F65" opacity=".42"/>
+      <line x1="36" y1="91" x2="36" y2="86" stroke="#5E8F65" stroke-width="1" opacity=".38"/>
+      <!-- Châtaignier branche 1 (~y=260) -->
+      <path d="M70 244 C58 239 44 234 28 236" stroke="#5E8F65" stroke-width="1.4" opacity=".55"/>
+      <ellipse cx="32" cy="225" rx="24" ry="7.5" transform="rotate(5 32 225)" fill="#9EC5A3" opacity=".48"/>
+      <ellipse cx="20" cy="238" rx="22" ry="7" transform="rotate(-8 20 238)" fill="#9EC5A3" opacity=".43"/>
+      <ellipse cx="48" cy="231" rx="20" ry="6.5" transform="rotate(18 48 231)" fill="#9EC5A3" opacity=".43"/>
+      <line x1="56" y1="232" x2="20" y2="237" stroke="#5E8F65" stroke-width=".7" opacity=".38"/>
+      <!-- Bogues de châtaignes -->
+      <circle cx="18" cy="247" r="5" fill="#5E8F65" opacity=".3"/>
+      <circle cx="26" cy="250" r="5" fill="#5E8F65" opacity=".28"/>
+      <!-- Chêne branche 2 (~y=390) -->
+      <path d="M68 372 C56 367 42 362 26 365" stroke="#5E8F65" stroke-width="1.5" opacity=".55"/>
+      <ellipse cx="30" cy="353" rx="18" ry="8" transform="rotate(6 30 353)" fill="#9EC5A3" opacity=".47"/>
+      <ellipse cx="22" cy="364" rx="16" ry="7" transform="rotate(-10 22 364)" fill="#9EC5A3" opacity=".42"/>
+      <ellipse cx="43" cy="359" rx="14" ry="6.5" transform="rotate(22 43 359)" fill="#9EC5A3" opacity=".42"/>
+      <ellipse cx="18" cy="373" rx="13" ry="6" transform="rotate(-14 18 373)" fill="#9EC5A3" opacity=".38"/>
+      <line x1="52" y1="360" x2="18" y2="368" stroke="#5E8F65" stroke-width=".8" opacity=".38"/>
+      <!-- Glands -->
+      <ellipse cx="25" cy="380" rx="4" ry="5" fill="#9EC5A3" opacity=".36"/>
+      <ellipse cx="25" cy="375" rx="4.5" ry="2" fill="#5E8F65" opacity=".4"/>
+      <ellipse cx="33" cy="382" rx="4" ry="5" fill="#9EC5A3" opacity=".33"/>
+      <ellipse cx="33" cy="377" rx="4.5" ry="2" fill="#5E8F65" opacity=".36"/>
+      <!-- Châtaignier branche 2 (~y=530) -->
+      <path d="M64 512 C52 507 36 503 18 506" stroke="#5E8F65" stroke-width="1.4" opacity=".5"/>
+      <ellipse cx="22" cy="493" rx="24" ry="7.5" transform="rotate(4 22 493)" fill="#9EC5A3" opacity=".45"/>
+      <ellipse cx="12" cy="507" rx="22" ry="7" transform="rotate(-7 12 507)" fill="#9EC5A3" opacity=".4"/>
+      <ellipse cx="40" cy="499" rx="20" ry="6.5" transform="rotate(16 40 499)" fill="#9EC5A3" opacity=".4"/>
+      <circle cx="10" cy="516" r="5.5" fill="#5E8F65" opacity=".28"/>
+      <circle cx="18" cy="519" r="5.5" fill="#5E8F65" opacity=".26"/>
+      <!-- Chêne bas (~y=670) -->
+      <path d="M62 654 C50 649 36 644 20 647" stroke="#5E8F65" stroke-width="1.4" opacity=".45"/>
+      <ellipse cx="24" cy="636" rx="18" ry="7.5" transform="rotate(7 24 636)" fill="#9EC5A3" opacity=".42"/>
+      <ellipse cx="16" cy="648" rx="16" ry="7" transform="rotate(-9 16 648)" fill="#9EC5A3" opacity=".38"/>
+      <ellipse cx="38" cy="641" rx="14" ry="6" transform="rotate(20 38 641)" fill="#9EC5A3" opacity=".38"/>
+      <!-- Feuilles éparses -->
+      <ellipse cx="76" cy="170" rx="14" ry="5.5" transform="rotate(-32 76 170)" fill="#9EC5A3" opacity=".36"/>
+      <ellipse cx="72" cy="310" rx="13" ry="5" transform="rotate(-28 72 310)" fill="#9EC5A3" opacity=".33"/>
+      <ellipse cx="66" cy="460" rx="13" ry="5" transform="rotate(-30 66 460)" fill="#9EC5A3" opacity=".33"/>
+      <ellipse cx="62" cy="750" rx="14" ry="5.5" transform="rotate(-25 62 750)" fill="#9EC5A3" opacity=".28"/>
+    </svg>
+  </div>
+
   <!-- Illustration placeholder — remplacer par <img src="illustration-laique.png" class="ill-img"> -->
   <div class="ill-wrap">
     <div class="ill-ph">
