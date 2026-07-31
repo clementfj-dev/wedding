@@ -129,6 +129,31 @@
     .scroll-cue { margin-top: 1.5rem; color: var(--gold); opacity: .45; animation: scrollAnim 2.5s ease-in-out infinite; }
     @keyframes scrollAnim { 0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(5px);opacity:.65} }
 
+    /* ── SPLASH ── */
+    #splash {
+      position: fixed; inset: 0; z-index: 1000;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .45s ease;
+    }
+    #splash.out { opacity: 0; pointer-events: none; }
+    .splash-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: contain; mix-blend-mode: screen;
+    }
+    .splash-inner {
+      position: relative; z-index: 1; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+    }
+    .splash-cn {
+      font-family: var(--serif-cn); font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      color: var(--gold); letter-spacing: .15em; line-height: 1.15;
+    }
+    .splash-lat {
+      font-family: var(--serif-lat); font-size: clamp(.72rem, 1.1vw, .9rem);
+      color: rgba(250,240,224,.5); letter-spacing: .22em;
+    }
+
     /* ── ACTIONS BAR ── */
     .actions-bar {
       display: flex; align-items: center; justify-content: center; gap: 1.5rem;
@@ -197,6 +222,16 @@
   </style>
 </head>
 <body>
+
+<!-- ── SPLASH ── -->
+<div id="splash">
+  <img src="images/dragon-phenix.png" class="splash-img" alt="">
+  <div class="splash-inner">
+    <p class="splash-cn">冰儿 &amp; 克莱蒙</p>
+    <p class="splash-lat">Binger &amp; Clément</p>
+  </div>
+</div>
+
 
 <!-- ── LANG MODAL ── -->
 <div class="lang-modal" id="langModal">
@@ -468,6 +503,13 @@ document.querySelectorAll('.lang-choice').forEach(b => b.addEventListener('click
   setTimeout(() => modal.classList.add('hidden'), 350);
 }));
 document.querySelectorAll('.lang-mini').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+// Splash fade-out
+setTimeout(function() {
+  var s = document.getElementById('splash');
+  s.classList.add('out');
+  setTimeout(function() { s.style.display = 'none'; }, 450);
+}, 2000);
 
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
