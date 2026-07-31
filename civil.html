@@ -71,7 +71,7 @@
     }
     .ill-ph::before { content: ''; position: absolute; inset: .5rem; border: 1px solid rgba(184,152,112,.15); }
     .ill-label { font-family: 'Courier New', monospace; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
-    .ill-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ill-img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     /* Hero text */
     .event-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
@@ -181,11 +181,8 @@
 
 <!-- ── HERO ── -->
 <section class="hero" id="top">
-  <!-- Illustration placeholder — remplacer par <img src="illustration-civil.png" class="ill-img"> -->
   <div class="ill-wrap">
-    <div class="ill-ph">
-      <span class="ill-label">[ Illustration — Mariage Civil ]</span>
-    </div>
+    <img src="images/illustration-civil.png" class="ill-img" alt="">
   </div>
 
   <p class="event-label t" data-key="event_label"></p>
