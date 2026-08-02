@@ -229,9 +229,11 @@
     .footer-lat { font-family: var(--serif-lat); font-size: .7rem; color: var(--gold-d); letter-spacing: .25em; }
 
     /* PHOTOS */
+    #photos { padding: 0; }
     #photos .section-inner { max-width: 100%; }
-    .photos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    .photo-slot { aspect-ratio: 2/3; }
+    .photos-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 33.3vw 33.3vw; gap: .5rem; }
+    .photos-grid:has(.photo-slot:nth-child(3)) .photo-slot:first-child { grid-row: span 2; }
+    .photo-slot { overflow: hidden; }
     .photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     @media(max-width:700px) {
@@ -381,8 +383,9 @@
 <section class="section section-alt reveal" id="photos">
   <div class="section-inner">
     <div class="photos-grid">
-      <div class="photo-slot"><img src="images/photo-chinois-1.jpg" class="photo-img" alt="" loading="lazy" style="object-position:center 30%"></div>
       <div class="photo-slot"><img src="images/photo-chinois-2.jpg" class="photo-img" alt="" loading="lazy" style="object-position:right 20%"></div>
+      <div class="photo-slot"><img src="images/photo-chinois-1.jpg" class="photo-img" alt="" loading="lazy" style="object-position:center 30%"></div>
+      <div class="photo-slot"><img src="images/photo-chinois-3.jpg" class="photo-img" alt="" loading="lazy" style="object-position:center center"></div>
     </div>
   </div>
 </section>
