@@ -108,6 +108,46 @@
     .scroll-cue { margin-top: 1.5rem; color: var(--sage-l); opacity: .6; animation: scrollAnim 2.5s ease-in-out infinite; }
     @keyframes scrollAnim { 0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(5px);opacity:.75} }
 
+    /* ── SPLASH RIDEAU ── */
+    #splash {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; pointer-events: auto;
+    }
+    .splash-half {
+      width: 50%; height: 100%;
+      background: #F2EDE3;
+      overflow: hidden; position: relative;
+      transition: transform 1.1s cubic-bezier(.76,0,.24,1);
+    }
+    #splash.open .splash-l { transform: translateX(-100%); }
+    #splash.open .splash-r { transform: translateX(100%); }
+    .splash-content {
+      position: absolute; top: 0;
+      width: 200%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .splash-l .splash-content { left: 0; }
+    .splash-r .splash-content { right: 0; }
+    .splash-img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+    .splash-inner {
+      position: absolute;
+      top: 6%; left: 0; right: 0;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+    }
+    .splash-title {
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      font-size: clamp(1.7rem, 3.5vw, 2.9rem);
+      color: var(--sage-l); letter-spacing: .04em; line-height: 1.15;
+    }
+    .splash-date {
+      font-size: clamp(.58rem, .9vw, .72rem);
+      color: var(--muted); letter-spacing: .22em; text-transform: uppercase;
+    }
+
     /* ── ACTIONS BAR ── */
     .actions-bar {
       display: flex; align-items: center; justify-content: center; gap: 1.5rem;
@@ -200,6 +240,27 @@
 <body>
 
 <!-- ── LANG MODAL ── -->
+<div id="splash">
+  <div class="splash-half splash-l">
+    <div class="splash-content">
+      <img src="images/splash-laique.jpg" class="splash-img" alt="">
+      <div class="splash-inner">
+        <p class="splash-title">Binger &amp; Clément</p>
+        <p class="splash-date">15 Mai 2027</p>
+      </div>
+    </div>
+  </div>
+  <div class="splash-half splash-r">
+    <div class="splash-content">
+      <img src="images/splash-laique.jpg" class="splash-img" alt="">
+      <div class="splash-inner">
+        <p class="splash-title">Binger &amp; Clément</p>
+        <p class="splash-date">15 Mai 2027</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="lang-modal" id="langModal">
   <div class="lang-modal-box">
     <p class="lm-name">Binger &amp; Clément</p>
@@ -508,6 +569,13 @@ document.querySelectorAll('.lang-choice').forEach(b => b.addEventListener('click
   setTimeout(() => modal.classList.add('hidden'), 350);
 }));
 document.querySelectorAll('.lang-mini').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+// Splash rideau
+setTimeout(function() {
+  var s = document.getElementById('splash');
+  s.classList.add('open');
+  setTimeout(function() { s.style.display = 'none'; }, 1100);
+}, 2000);
 
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
