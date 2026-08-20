@@ -3,119 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binger & Clément — Nos célébrations</title>
+  <title>Binger &amp; Clément</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Noto+Serif+SC:wght@300&display=swap" rel="stylesheet">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{
-      --bg:   #0E0C0A;
-      --bg2:  #1A1714;
-      --text: #F5F0E8;
-      --muted:rgba(245,240,232,.42);
-      --gold: #B89870;
-      --gd:   rgba(184,152,112,.2);
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      display: flex;
+      flex-direction: row;
     }
-    html,body{min-height:100%;}
-    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);font-weight:300;display:flex;flex-direction:column;min-height:100svh;}
 
-    /* HEADER */
-    .hub-header{text-align:center;padding:3rem 2rem 2rem;}
-    .hub-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-style:italic;font-weight:300;line-height:1.1;margin-bottom:.6rem;}
-    .hub-sub{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);}
-    .hub-sep{width:2.5rem;height:1px;background:linear-gradient(90deg,transparent,rgba(184,152,112,.5),transparent);margin:1.5rem auto 0;}
-
-    /* EVENT CARDS GRID */
-    .events{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;width:100%;max-width:960px;margin:0 auto;}
-
-    .event-card{
-      display:flex;flex-direction:column;padding:2.5rem 2rem 2rem;
-      text-decoration:none;color:inherit;position:relative;overflow:hidden;
-      transition:transform .3s ease;min-height:300px;
+    /* ── PANELS ── */
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: flex .65s cubic-bezier(.76,0,.24,1);
     }
-    .event-card:hover{transform:translateY(-4px);}
-    .event-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s ease;}
-    .event-card:hover::before{opacity:1;}
+    .panel:hover { flex: 1.3; }
 
-    /* V1 — Classique */
-    .v1-civil{background:#FAF7F4;color:#1C1714;}
-    .v1-civil::before{background:#F0E8DC;}
-    .v1-civil .card-num{color:#B89870;}
-    .v1-civil .card-title{font-family:'Cormorant Garamond',serif;font-style:normal;}
-    .v1-civil .card-tag{border-color:rgba(184,152,112,.4);color:#B89870;}
-    .v1-civil .card-muted{color:rgba(28,23,20,.4);}
-    .v1-civil .card-arrow{color:#B89870;}
+    .panel-laique  { background: #1C2B1F; border-right: 1px solid rgba(158,197,163,.08); }
+    .panel-chinois { background: #D91F26; }
 
-    .v1-laique{background:#EDE8DC;color:#2B2318;}
-    .v1-laique::before{background:#E4DDD0;}
-    .v1-laique .card-num{color:#6A8C6E;}
-    .v1-laique .card-title{font-family:'Cormorant Garamond',serif;font-style:italic;}
-    .v1-laique .card-tag{border-color:rgba(106,140,110,.4);color:#6A8C6E;}
-    .v1-laique .card-muted{color:rgba(43,35,24,.45);}
-    .v1-laique .card-arrow{color:#6A8C6E;}
-
-    .v1-chinois{background:#120500;color:#FAF0E0;}
-    .v1-chinois::before{background:#1E0800;}
-    .v1-chinois .card-num{color:#C9A84C;}
-    .v1-chinois .card-title{font-family:'Noto Serif SC',serif;color:#E8D19A;}
-    .v1-chinois .card-tag{border-color:rgba(201,168,76,.3);color:#C9A84C;}
-    .v1-chinois .card-muted{color:rgba(250,240,224,.38);}
-    .v1-chinois .card-arrow{color:#C9A84C;}
-
-    /* Shared card elements */
-    .card-num{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.1rem;position:relative;z-index:1;}
-    .card-title{font-size:clamp(1.3rem,2vw,1.8rem);font-weight:300;line-height:1.15;margin-bottom:.55rem;position:relative;z-index:1;}
-    .card-tag{display:inline-block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid;padding:.2rem .6rem;margin-bottom:1.4rem;position:relative;z-index:1;}
-    .card-muted{font-size:.8rem;line-height:1.55;flex:1;position:relative;z-index:1;}
-    .card-arrow{font-size:1.2rem;margin-top:1.5rem;position:relative;z-index:1;transition:transform .25s ease;display:inline-block;}
-    .event-card:hover .card-arrow{transform:translateX(5px);}
-
-    /* Cross dividers */
-    .v1-civil,.v1-laique{border-right:1.5px solid rgba(255,255,255,.1);}
-
-    @media(max-width:720px){
-      .events{grid-template-columns:1fr;gap:1.5px;}
-      .v1-civil,.v1-laique{border-right:none;border-bottom:1.5px solid rgba(255,255,255,.08);}
-      .event-card{min-height:200px;padding:2rem 1.5rem 1.75rem;}
+    /* ── HEADER (centered, fixed) ── */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.2rem 2rem 0;
+      z-index: 10;
+      pointer-events: none;
     }
-    @media(max-width:480px){body{padding:0;}.hub-header{padding:2rem 1.25rem 1.5rem;}}
+    .site-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      letter-spacing: .04em;
+      line-height: 1.1;
+      color: rgba(245,240,232,.55);
+      white-space: nowrap;
+    }
+    .site-sub {
+      margin-top: .45rem;
+      font-size: .52rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,.22);
+    }
+
+    /* ── VERTICAL DIVIDER ── */
+    .divider {
+      position: fixed;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: rgba(255,255,255,.07);
+      z-index: 5;
+      pointer-events: none;
+      transition: left .65s cubic-bezier(.76,0,.24,1);
+    }
+
+    /* ── PANEL CONTENT ── */
+    .panel-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+      padding: 2rem;
+    }
+
+    .panel-illus {
+      width: min(40vw, 280px);
+      height: min(32vh, 220px);
+      object-fit: contain;
+      transition: transform .65s cubic-bezier(.76,0,.24,1);
+      display: block;
+    }
+    .panel-laique  .panel-illus { opacity: .9; }
+    .panel-chinois .panel-illus { mix-blend-mode: screen; opacity: .95; }
+    .panel:hover .panel-illus   { transform: scale(1.05); }
+
+    .panel-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .45rem;
+      text-align: center;
+    }
+    .panel-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+      letter-spacing: .04em;
+      line-height: 1.1;
+    }
+    .panel-laique  .panel-name { color: #9EC5A3; }
+    .panel-chinois .panel-name { font-family: 'Noto Serif SC', serif; font-style: normal; color: #E8D19A; }
+
+    .panel-date {
+      font-size: .53rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .panel-laique  .panel-date { color: rgba(158,197,163,.42); }
+    .panel-chinois .panel-date { color: rgba(201,168,76,.42); }
+
+    .panel-cta {
+      font-size: .53rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .panel-laique  .panel-cta { color: #9EC5A3; }
+    .panel-chinois .panel-cta { color: #C9A84C; }
+    .panel:hover .panel-cta { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      html, body { height: auto; overflow: auto; }
+      body { flex-direction: column; }
+      .panel { min-height: 50svh; flex: none !important; }
+      .panel-laique { border-right: none; border-bottom: 1px solid rgba(158,197,163,.08); }
+      .site-header { position: static; pointer-events: auto; padding: 2.5rem 1.5rem 0; background: #1C2B1F; }
+      .divider { display: none; }
+      .panel-illus { width: min(55vw, 200px); }
+      .panel-cta { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
 
-<header class="hub-header">
-  <h1 class="hub-title">Binger &amp; Clément</h1>
-  <p class="hub-sub">Nos célébrations · Our celebrations · 我们的婚礼</p>
-  <div class="hub-sep"></div>
+<header class="site-header">
+  <p class="site-title">Binger &amp; Clément</p>
+  <p class="site-sub">Nos célébrations · Our celebrations · 我们的婚礼</p>
 </header>
 
-<!-- EVENT CARDS -->
-<nav class="events" aria-label="Événements">
+<div class="divider"></div>
 
-  <a class="event-card v1-civil" href="civil.html">
-    <span class="card-num">01</span>
-    <h2 class="card-title">Mariage Civil</h2>
-    <span class="card-tag">Classique</span>
-    <p class="card-muted">Date à confirmer<br>Mairie de Neuilly-Plaisance<br>6 Rue du Général de Gaulle, 93360 Neuilly-Plaisance</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v1-laique" href="laique.html">
-    <span class="card-num">02</span>
-    <h2 class="card-title">Mariage Laïque</h2>
-    <span class="card-tag">Classique</span>
-    <p class="card-muted">Samedi 15 Mai 2027<br>Château de Roussillon<br>Saint-Pierre-Lafeuille</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a class="event-card v1-chinois" href="chinois.html">
-    <span class="card-num">〇三</span>
-    <h2 class="card-title">中式传统婚礼</h2>
-    <span class="card-tag">Classique</span>
-    <p class="card-muted">2027年7月25日（星期日）<br>[时间] · [场地]<br>[城市]</p>
-    <span class="card-arrow">→</span>
-  </a>
+<a class="panel panel-laique" href="laique.html">
+  <div class="panel-content">
+    <img src="images/illustration-laique.png" class="panel-illus" alt="Mariage Laïque">
+    <div class="panel-label">
+      <span class="panel-name">Mariage Laïque</span>
+      <span class="panel-date">15 Mai 2027 · Château de Roussillon</span>
+    </div>
+    <span class="panel-cta">Découvrir →</span>
+  </div>
+</a>
 
-</nav>
+<a class="panel panel-chinois" href="chinois.html">
+  <div class="panel-content">
+    <img src="images/illustration-chinois.png" class="panel-illus" alt="中式婚礼">
+    <div class="panel-label">
+      <span class="panel-name">中式传统婚礼</span>
+      <span class="panel-date">2027年7月25日</span>
+    </div>
+    <span class="panel-cta">探索 →</span>
+  </div>
+</a>
 
 </body>
 </html>
