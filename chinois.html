@@ -173,28 +173,29 @@
     /* ── RSVP BANNER (sticky) ── */
     #rsvp-banner {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: #1A0303; border-bottom: 1px solid rgba(201,168,76,.2);
-      display: flex; align-items: center; gap: .75rem;
-      padding: .55rem 1.25rem .55rem 1.5rem;
+      background: #1A0303; border-bottom: 2px solid rgba(201,168,76,.35);
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 1.1rem 1.5rem 1.1rem 1.75rem;
     }
     .rb-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+      width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
       flex-shrink: 0; animation: rbpulse 2.2s ease-in-out infinite;
     }
-    @keyframes rbpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.75)} }
-    .rb-text { font-size: .7rem; letter-spacing: .07em; color: rgba(250,240,224,.6); flex: 1; }
+    @keyframes rbpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+    .rb-text { font-size: .88rem; letter-spacing: .04em; color: rgba(250,240,224,.88); flex: 1; font-weight: 400; }
     .rb-cta {
-      color: var(--ink); background: var(--gold); padding: .32rem .9rem;
-      text-decoration: none; font-size: .62rem; letter-spacing: .14em;
-      text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+      color: var(--ink); background: var(--gold); padding: .75rem 2rem;
+      text-decoration: none; font-size: .8rem; letter-spacing: .16em;
+      text-transform: uppercase; white-space: nowrap; flex-shrink: 0; font-weight: 400;
+      border: 2px solid var(--gold);
     }
-    .rb-cta:hover { background: var(--gold-d); }
+    .rb-cta:hover { background: transparent; color: var(--gold); }
     .rb-close {
-      background: none; border: none; color: rgba(250,240,224,.3);
-      font-size: 1.1rem; cursor: pointer; padding: 0 .15rem; line-height: 1;
+      background: none; border: none; color: rgba(250,240,224,.35);
+      font-size: 1.4rem; cursor: pointer; padding: 0 .25rem; line-height: 1;
       flex-shrink: 0;
     }
-    .rb-close:hover { color: rgba(250,240,224,.7); }
+    .rb-close:hover { color: rgba(250,240,224,.8); }
 
     /* ── RSVP DEADLINE (inline) ── */
     .rsvp-deadline { display: none; }
