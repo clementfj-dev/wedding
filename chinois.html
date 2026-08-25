@@ -196,6 +196,13 @@
       flex-shrink: 0;
     }
     .rb-close:hover { color: rgba(250,240,224,.8); }
+    @media(max-width:600px) {
+      #rsvp-banner { flex-wrap: wrap; padding: .65rem 1rem; gap: .5rem; position: relative; }
+      .rb-dot { display: none; }
+      .rb-text { font-size: .75rem; flex-basis: calc(100% - 2rem); }
+      .rb-cta { flex: 1; text-align: center; padding: .55rem 1rem; font-size: .72rem; }
+      .rb-close { position: absolute; top: .5rem; right: .5rem; }
+    }
 
     /* ── RSVP DEADLINE (inline) ── */
     .rsvp-deadline { display: none; }
@@ -286,7 +293,7 @@
 <div id="rsvp-banner" style="display:none">
   <div class="rb-dot"></div>
   <span class="rb-text t" data-key="deadline"></span>
-  <a class="rb-cta t" data-key="rsvp" href="#" target="_blank" rel="noopener"></a>
+  <a class="rb-cta t" data-key="rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSeyL-2IqjUVURQ3Dk6CHKke500e3wCYjWNbmR0hn1etviTgsA/viewform?usp=header" target="_blank" rel="noopener"></a>
   <button class="rb-close" aria-label="Fermer" onclick="document.getElementById('rsvp-banner').style.display='none';localStorage.setItem('chinois_rsvp_dismissed','1')">×</button>
 </div>
 
@@ -420,7 +427,7 @@
 
 <!-- ── ACTIONS ── -->
 <div class="actions-bar reveal">
-  <a class="action-link" href="#" target="_blank" rel="noopener"><span class="action-ico">囍</span><span class="t" data-key="rsvp"></span><span class="action-brand">— RSVP</span><span class="soon-badge t" data-key="soon"></span></a>
+  <a class="action-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeyL-2IqjUVURQ3Dk6CHKke500e3wCYjWNbmR0hn1etviTgsA/viewform?usp=header" target="_blank" rel="noopener"><span class="action-ico">囍</span><span class="t" data-key="rsvp"></span><span class="action-brand">— RSVP</span></a>
   <span class="action-sep">·</span>
   <a class="action-link" href="#" target="_blank" rel="noopener"><span class="action-ico">礼</span><span class="t" data-key="gift"></span><span class="action-brand">— Lydia</span><span class="soon-badge t" data-key="soon"></span></a>
 </div>
