@@ -134,18 +134,21 @@
     }
     .splash-inner {
       position: absolute;
-      top: 6%; left: 0; right: 0;
+      bottom: 0; left: 0; right: 0;
       text-align: center;
-      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+      display: flex; flex-direction: column; align-items: center; gap: .35rem;
+      padding: 1.25rem 1rem 1.5rem;
+      background: linear-gradient(to top, rgba(28,43,31,.72) 0%, transparent 100%);
     }
     .splash-title {
       font-family: var(--serif); font-style: italic; font-weight: 400;
-      font-size: clamp(1.7rem, 3.5vw, 2.9rem);
-      color: var(--sage-l); letter-spacing: .04em; line-height: 1.15;
+      font-size: clamp(1.6rem, 3.5vw, 2.9rem);
+      color: #EDE8DF; letter-spacing: .04em; line-height: 1.15;
+      text-shadow: 0 1px 8px rgba(0,0,0,.3);
     }
     .splash-date {
-      font-size: clamp(.58rem, .9vw, .72rem);
-      color: var(--muted); letter-spacing: .22em; text-transform: uppercase;
+      font-size: clamp(.6rem, .9vw, .72rem);
+      color: rgba(237,232,223,.75); letter-spacing: .22em; text-transform: uppercase;
     }
 
     /* ── RSVP BANNER (sticky) ── */
